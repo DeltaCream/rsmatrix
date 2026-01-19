@@ -53,12 +53,12 @@ impl Charset {
     }
 
     pub fn get_random_char(&self) -> char {
-        let mut rng = rand::thread_rng();
+        let mut rng = rand::rng();
         let charset = self.get_charset_range();
-        let idx = rng.gen_range(0..charset.len());
+        let idx = rng.random_range(0..charset.len());
         // Range does not implement iterator over immutable reference..
         // cloning is cheap for range. just use it
-        rng.gen_range(charset[idx].clone())
+        rng.random_range(charset[idx].clone())
     }
 }
 

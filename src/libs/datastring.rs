@@ -1,5 +1,4 @@
 use crate::arguments::{Settings, Trilean};
-use rand::{distributions::uniform::SampleRange, Rng};
 use std::{
     cmp::min,
     io::{Stdout, Write},
@@ -69,7 +68,7 @@ pub struct DataString<'a> {
 }
 
 impl DataString<'_> {
-    pub fn new(x: u16, width: u16, height: u16, settings: &Settings) -> DataString {
+    pub fn new(x: u16, width: u16, height: u16, settings: &Settings) -> DataString<'_> {
         DataString {
             data: (0..height)
                 .map(|_| Datum {

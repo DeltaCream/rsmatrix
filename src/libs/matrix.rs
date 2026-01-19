@@ -23,7 +23,7 @@ pub struct Matrix<'a> {
 }
 
 impl Matrix<'_> {
-    pub fn new(width: u16, height: u16, settings: &Settings) -> Matrix {
+    pub fn new(width: u16, height: u16, settings: &Settings) -> Matrix<'_> {
         let datastring_count = match settings.charset.get_width() {
             CharWidth::Half => width + 1,
             CharWidth::Full => width / u16::from(settings.charset.get_width()),

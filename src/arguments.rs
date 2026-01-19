@@ -95,7 +95,7 @@ struct Arguments {
     /// OPTIONS:
     ///   ascii,
     ///   katakana,
-    ///    
+    ///
     #[clap(short, long, default_value_t = String::from("ascii"))]
     pub charset: String,
 
@@ -211,11 +211,11 @@ fn get_next_rainbow_color() -> color::Rgb {
 }
 
 fn get_random_color() -> color::Rgb {
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
     let (r, g, b) = (
-        rng.gen_range(0..=255),
-        rng.gen_range(0..=255),
-        rng.gen_range(0..=255),
+        rng.random_range(0..=255),
+        rng.random_range(0..=255),
+        rng.random_range(0..=255),
     );
     color::Rgb(r, g, b)
 }
